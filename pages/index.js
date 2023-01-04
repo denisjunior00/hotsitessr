@@ -2,7 +2,7 @@
 export default function Home({destaques}) {
   return (
     <div>
-      Informação api pokemon por ServerSide
+      Informação api pokemon por ServerSide  ---
       {destaques.abilities[0].ability.name}
     </div>
   )

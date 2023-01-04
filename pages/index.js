@@ -1,5 +1,14 @@
+
+export default function Home({destaques}) {
+  return (
+    <div>
+      {destaques.abilities[0].ability.name}
+    </div>
+  )
+}
+
 export async function getStaticProps(){
-  let urlRequisicao   = 'https://api-dev.infoimoveis.com.br/imoveis'
+  let urlRequisicao   = 'https://pokeapi.co/api/v2/pokemon/ditto'
   let lojaId          = ["1722"]
   try {
     let body = JSON.stringify({
@@ -10,7 +19,7 @@ export async function getStaticProps(){
 
     const data = await fetch(urlRequisicao)
     const destaques = await data.json()
-
+    console.log(destaques)
     return {    
       props: {destaques}
     }
@@ -23,10 +32,3 @@ export async function getStaticProps(){
   
 }
 
-export default function Home({destaques}) {
-  return (
-    <div>
-      {destaques.resultados[0].id}
-    </div>
-  )
-}

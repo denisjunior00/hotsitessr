@@ -1,5 +1,5 @@
 export async function getStaticProps(){
-  let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/shopcar_multiplos.php'
+  let urlRequisicao   = 'https://api-dev.infoimoveis.com.br/imoveis'
   let lojaId          = ["1722"]
   try {
     let body = JSON.stringify({
@@ -8,15 +8,9 @@ export async function getStaticProps(){
       , resultados : 8
     })  
 
-    const data = await fetch(urlRequisicao,{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
-
+    const data = await fetch(urlRequisicao)
     const destaques = await data.json()
-
-
+    console.log(destaques)
     return {    
       props: {destaques}
     }
@@ -32,7 +26,7 @@ export async function getStaticProps(){
 export default function Home({destaques}) {
   return (
     <div>
-      {destaques[0].vei_id}
+      {destaques.resultados[0].id}
     </div>
   )
 }

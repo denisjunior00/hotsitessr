@@ -2,15 +2,15 @@
 export default function Home({destaques}) {
   return (
     <div>
-      Informação api pokemon por ServerSide  ---
-      {destaques.abilities[0].ability.name}
+      Informação por ServerSide  ---
+      Anuncio {destaques[0].vei_id}
     </div>
   )
 }
 
 export async function getStaticProps(){
-  let urlRequisicao   = 'https://pokeapi.co/api/v2/pokemon/ditto'
-  let lojaId          = ["1722"]
+  let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/shopcar_multiplos.php'
+let lojaId          = ["1722"]
   try {
     let body = JSON.stringify({
       acao : "destaques"
@@ -18,9 +18,15 @@ export async function getStaticProps(){
       , resultados : 8
     })  
 
-    const data = await fetch(urlRequisicao)
+    const data = await fetch(urlRequisicao,{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    })
+
     const destaques = await data.json()
-    console.log(destaques)
+
+
     return {    
       props: {destaques}
     }

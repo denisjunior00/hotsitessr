@@ -10,7 +10,7 @@ export async function getStaticProps(){
 
     const data = await fetch(urlRequisicao)
     const destaques = await data.json()
-    console.log(destaques)
+
     return {    
       props: {destaques}
     }

@@ -9,7 +9,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { api, lojaId, urlRequisicao } from "../utils";
 
 export default function Home({destaques}) {  
-  return <div>{destaques[0].vei_id}</div>
+  return <div>{destaques.map(item => { return <div>{item.vei_id}</div>})}</div>
 }
 
 export async function getStaticProps(){

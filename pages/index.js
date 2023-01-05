@@ -24,7 +24,7 @@ export default function Home({destaques}) {
   return (
 
     
-    <div className={styles.buscaVeiculos}>
+    <div className={styles.container}>
       <div>{destaques[0].vei_id}</div>
     </div>
   )

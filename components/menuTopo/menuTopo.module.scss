@@ -57,7 +57,7 @@
         
             .logo{
                 cursor: pointer;
-                max-width: 210px;
+                width: 210px;
             }
         
             .links{
@@ -109,7 +109,7 @@
         
                 .logo{
                     cursor: pointer;
-                    max-width: 170px;
+                    width: 170px;
                 }
             
                 .links{
@@ -163,7 +163,7 @@
         
                 .logo{
                     cursor: pointer;
-                    max-width: 160px;
+                    width: 160px;
                 }
             
                 .links{
@@ -189,7 +189,10 @@
             
                 .conteudoMenuTelaPequena{
                     display: none;
+
+
                 }
+
             }
 
             
@@ -225,9 +228,9 @@
         
         
                     .logo{
-                        position: absolute;
+                        // position: absolute;
                         cursor: pointer;
-                        width: 150px;
+                        width: 100px;
                     }
             
                     .MenuMobile{
@@ -284,6 +287,14 @@
                             overflow: hidden;
                             transition: max-height 0.5s opacity 0.5s;                   
                             opacity: 0;
+                            
+                        }
+                        .botaoAbrirMenuMobile{
+                            height:  75px;
+                            width: 100%;
+                            display: flex;
+                            justify-content: end;
+                            align-items: center;
                         }
         
                     }           

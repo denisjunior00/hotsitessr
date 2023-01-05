@@ -3,10 +3,14 @@ import React, { useEffect, useState } from 'react'
 import CardAnuncio from "../components/cardAnuncio";
 import { lojaId, urlRequisicao } from "../utils";
 import ListagemVeiculos from '../components/listagemVeiculos';
+import styles from './pageInicial.module.scss'
 
 export default function  Home({destaques}) {  
   return(
-    <ListagemVeiculos anuncios={destaques}/>
+    <div className={styles.container}>
+      <ListagemVeiculos anuncios={destaques}/>
+    </div>
+    
   )
 }
 

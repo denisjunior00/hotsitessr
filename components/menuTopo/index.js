@@ -35,7 +35,7 @@ export default function Menu({children}) {
               <nav className={styles.conteudoMenuTelaGrande}>
 
                 <a className={styles.logo} href={`/`}>                  
-                <Image max-width='250' max-height='150' src={logo}/>  
+                <Image width='190' height='100' src={logo}/>  
                 </a>
                 <div className={styles.links}>
                   <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>
@@ -64,8 +64,7 @@ export default function Menu({children}) {
 
               <div className={styles.conteudoMenuTelaPequena}>
                 <a className={styles.logo} href={`/`}>
-                <Image max-width='250' max-height='150' src={logo}/>  
-
+                  <Image width='150' height='75' src={logo}/>  
                 </a>
                 <div/>
                 <nav className={styles.MenuMobile}>

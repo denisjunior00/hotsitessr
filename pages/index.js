@@ -21,7 +21,13 @@ export default function Home({destaques}) {
 
   
 
-  return <div>{destaques[0].vei_id}</div>
+  return (
+
+    
+    <div className={styles.buscaVeiculos}>
+      <div>{destaques[0].vei_id}</div>
+    </div>
+  )
   return(
   
     <div className={styles.container}>

@@ -21,13 +21,7 @@ export default function Home({destaques}) {
 
   
 
-  return (
-
-    
-    <div className={styles.container}>
-      <div>{destaques[0].vei_id}</div>
-    </div>
-  )
+  
   return(
   
     <div className={styles.container}>
@@ -36,16 +30,16 @@ export default function Home({destaques}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
-            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
+            {/* <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
+            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} /> */}
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar</button>
           </form>         
         </div>
         <div className={styles.painelAnuncios}>
           <div className={styles.anunciosDestaque}>
-          
+          <div>{destaques[0].vei_id}</div>
             
-              {
+              {/* {
                 destaques && destaques.length ? 
                 <div className={styles.listagemAnuncios}>
                   {
@@ -58,7 +52,7 @@ export default function Home({destaques}) {
                 </div> 
                 : <div className={styles.listagemSemAnuncio}> Nenhum anuncio encontrado! </div>
                 
-              }
+              } */}
               
           </div>
         </div>

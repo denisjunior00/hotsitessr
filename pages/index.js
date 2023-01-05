@@ -1,69 +1,15 @@
 import {BiSearch} from 'react-icons/bi'
 import styles from './pageInicial.module.scss';
 import React, { useEffect, useState } from 'react'
-import Select from 'react-select'
 import CardAnuncio from "../components/cardAnuncio";
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { api, lojaId, urlRequisicao } from "../utils";
 
 export default function Home({destaques}) {  
-
-
-  const inputMarcas = [
-
-    { value: 'Marca', label: 'Marca' }
-  ]
-
-  const inputModelo = [
-
-    { value: 'Modelo', label: 'Modelo' }
-  ]
-
-  
-
-  
-  return(
-  
-    <div className={styles.container}>
-
-      <div className={styles.envolveBusca}>
-        <div className={styles.buscaVeiculos}>
-          <p className={styles.titulo}>Veículos em destaque</p>
-          <form className={styles.busca}>
-            <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
-            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
-            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar</button>
-          </form>         
-        </div>
-        <div className={styles.painelAnuncios}>
-          <div className={styles.anunciosDestaque}>
-          <div>{destaques[0].vei_id}</div>
-            
-              {/* {
-                destaques && destaques.length ? 
-                <div className={styles.listagemAnuncios}>
-                  {
-                    destaques.map((anuncio, index) => {
-                      return(
-                        <CardAnuncio key={index} anuncio={anuncio}/>
-                      )
-                    })
-                  }   
-                </div> 
-                : <div className={styles.listagemSemAnuncio}> Nenhum anuncio encontrado! </div>
-                
-              } */}
-              
-          </div>
-        </div>
-          
-      </div>      
-      
-    </div>
-
-    
-  )
-  
+  return <div>{destaques[0].vei_id}</div>
 }
 
 export async function getStaticProps(){

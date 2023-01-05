@@ -1,0 +1,35 @@
+.dadosLoja{
+    background-color: white;
+    box-shadow: #00000030 0px 10px 30px;
+    border-radius: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+
+    .nomeLoja{
+        color: red;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .enderecoLoja{
+        color: #151515;;
+        font-weight: bold;
+    }
+
+    .telefonesLoja{
+        color: #337ab7;
+    }
+
+    .mapaLoja{
+        color: red;
+        border: 1px solid;
+        border-color: red;
+        width: 55px;
+        cursor: pointer;
+    }
+
+}
+

@@ -1,15 +1,13 @@
-import {BiSearch} from 'react-icons/bi'
-import styles from './pageInicial.module.scss';
+
 import React, { useEffect, useState } from 'react'
 import CardAnuncio from "../components/cardAnuncio";
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { lojaId, urlRequisicao } from "../utils";
+import ListagemVeiculos from '../components/listagemVeiculos';
 
-import { api, lojaId, urlRequisicao } from "../utils";
-
-export default function Home({destaques}) {  
-  return <div>{destaques.map(item => { return <CardAnuncio anuncio={item}/>})}</div>
+export default function  Home({destaques}) {  
+  return(
+    <ListagemVeiculos anuncios={destaques}/>
+  )
 }
 
 export async function getStaticProps(){

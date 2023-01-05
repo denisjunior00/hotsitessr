@@ -30,8 +30,8 @@ export default function Home({destaques}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            {/* <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
-            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} /> */}
+            <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
+            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar</button>
           </form>         
         </div>

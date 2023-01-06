@@ -12,6 +12,8 @@ export default function  Home({destaques}) {
   let inputMarcas = []
   let inputModelo = []
 
+  const [loadingSelect, setLoadingSelect] = useState(true)
+
   return(
     
     <div className={styles.container}>
@@ -19,8 +21,18 @@ export default function  Home({destaques}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
-            <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
+            {
+              
+              !loadingSelect ?
+              <>
+                <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
+                <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
+              </>
+              :
+              null
+              
+            }
+            
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar</button>
           </form>         
         </div>
@@ -34,7 +46,7 @@ export default function  Home({destaques}) {
 
 export async function getStaticProps(){
   let url   = urlRequisicao
-  let loja          = lojaId
+  let loja  = lojaId
   try {
     let body = JSON.stringify({
       acao : "destaques"

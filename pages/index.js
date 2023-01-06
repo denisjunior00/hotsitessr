@@ -15,16 +15,16 @@ export default function  Home({destaques}) {
 }
 
 export async function getStaticProps(){
-  let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/shopcar_multiplos.php'
-  let lojaId          = ["1722"]
+  let url   = urlRequisicao
+  let loja          = lojaId
   try {
     let body = JSON.stringify({
       acao : "destaques"
-      , loja : lojaId
+      , loja : loja
       , resultados : 8
     })  
 
-    const data = await fetch(urlRequisicao,{
+    const data = await fetch(url,{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body

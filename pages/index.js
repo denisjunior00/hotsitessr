@@ -13,6 +13,9 @@ export default function  Home({destaques}) {
   let inputModelo = []
 
   const [loadingSelect, setLoadingSelect] = useState(true)
+  useEffect(() => {
+    setLoadingSelect(false)
+  }, [])
 
   return(
     

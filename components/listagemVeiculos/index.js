@@ -5,7 +5,6 @@ import { lojaId, urlRequisicao } from "../../utils";
 import styles from './listagemVeiculos.module.scss'
 
 export default function ListagemVeiculos({anuncios}) {  
-    console.log(anuncios)
   return(
     
     

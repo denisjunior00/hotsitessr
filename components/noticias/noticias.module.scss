@@ -1,0 +1,97 @@
+.container{
+    padding-bottom: 20px;
+    background: radial-gradient(black 15%, transparent 16%) 0 0,radial-gradient(black 15%, transparent 16%) 5px 5px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 5px 6px;
+    background-color: #1b1b1b;
+    background-size: 10px 10px;
+    display: flex;
+    justify-content: center;   
+    
+
+    .envolveNoticias{
+        color: white;
+        padding: 20px 0px;
+        width: 1170px;
+        // display: flex;
+
+        .titulo{
+            font-size: 30px;
+            border-color: #222;
+            box-shadow: 0 1px 0 rgb(255 255 255 / 10%);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .agrupaNoticias{
+            display: flex;       
+            // .noticiaComImg{
+
+            // }
+
+            .noticiaComImg{
+                display: flex;
+                padding: 5px;       
+
+                a{                    
+                   
+                    padding: 5px;
+                    border: 1px solid;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px 0;
+                    width: 248px;
+                    border-radius: 5px;
+                }
+
+                a:hover{
+                    border-color: rgb(255, 28, 28);
+                }
+
+                p{
+                    padding: 5px;
+                }
+
+                // .envolveImagem{
+                // }
+            }
+            .listaNoticias{
+                display: flex;
+                flex-direction: column;
+                padding: 0 0 20px 40px;
+
+
+                a{
+                    padding: 10px 20px;
+                    background: none;
+                    border-width: 0 0 1px 0;
+                    border-color: #222;
+                    box-shadow: 0 1px 0 #666;
+                    cursor: pointer;
+                    border-radius: 3px;
+                }
+
+                a:hover{
+                    background-color: rgb(112, 112, 112);
+                }
+
+            }
+            
+            
+        }
+
+        .btMaisNoticias{
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            border: solid;
+            border-width: 0 0 0.5px 0;
+            border-color: rgba(255, 255, 255, 0);
+        }
+        .btMaisNoticias:hover{
+            border-color: rgb(255, 255, 255);
+        }
+    }
+}

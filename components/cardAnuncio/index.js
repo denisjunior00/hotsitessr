@@ -24,7 +24,7 @@ const CardAnuncio = ({anuncio}) => {
     
     
 
-    let urlAnuncio = "stored/veiculos/1666031971_44427pd.jpg"
+   
 
 
     return(

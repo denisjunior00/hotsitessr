@@ -9,6 +9,7 @@
     gap: 10px;
     padding: 10px;
     cursor: pointer;
+    white-space: nowrap; 
     
 
     .envolveImagemVeiculo{        
@@ -87,7 +88,7 @@
     @media (min-width: 768px) and (max-width: 994px) {       
         
         .cardAnuncio{
-            width: 150px;
+            width: 148px;
 
             .envolveImagemVeiculo{        
                 position: relative;

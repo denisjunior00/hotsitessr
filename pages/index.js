@@ -6,6 +6,7 @@ import ListagemVeiculos from '../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
+import Noticias from '../components/noticias';
 
 export default function  Home({destaques}) {
 
@@ -18,6 +19,8 @@ export default function  Home({destaques}) {
   }, [])
 
   return(
+
+    <>   
     
     <div className={styles.container}>
       <div className={styles.envolveBusca}>
@@ -40,10 +43,10 @@ export default function  Home({destaques}) {
           </form>         
         </div>
         <ListagemVeiculos anuncios={destaques}/>
-      </div>
-      
+      </div>     
     </div>
-    
+    <Noticias/>
+    </>
   )
 }
 

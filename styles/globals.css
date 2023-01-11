@@ -12,3 +12,8 @@ body{
     /* max-width: 1170px; */
     /* overflow-y: hidden; */
 }
+
+/* criação de classes para serem compartilhadas de maneira global */
+.backgroundPadrao{
+    background-color: red;
+}

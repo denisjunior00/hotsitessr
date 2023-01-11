@@ -20,6 +20,10 @@ export default function Menu({children}) {
     router.push(rota)
   }  
 
+  const stylesPadrao = {
+    backgroundColor: defaultColors.primary
+  }
+
   const [menuAberto, setMenuAberto] = useState(false);
 
     return (
@@ -32,7 +36,7 @@ export default function Menu({children}) {
 
             <div className={styles.envolveMenu}>
 
-              <nav className={styles.conteudoMenuTelaGrande}>
+              <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>
 
                 <a className={styles.logo} href={`/`}>                  
                 <Image width='190' height='100' src={logo}/>  

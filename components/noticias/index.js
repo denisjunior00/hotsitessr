@@ -61,15 +61,11 @@ const Noticias = () => {
                     <div className={styles.noticiaComImg}>
                         <a>
                             <div className={styles.envolveImagem}>
-                             <Image
+                              <Image
+                                className={styles.teste}
                                 loader={loaderImagens}
                                 src= {`${listaNoticias[0].art_foto1}`}
-                                // fill
-                                width={248}
-                                height={168}
-                                // sizes="(max-width: 768px) 100vw,
-                                //         (max-width: 1200px) 50vw,
-                                //         33vw"
+                                fill                                
                             />
                             </div>
                             <p>{`${listaNoticias[0].art_titulo}`}</p>

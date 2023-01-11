@@ -17,7 +17,6 @@ const defaultColors = {
 }
 
 
-
 function loaderImagens({src, width, quality}) {
     return `${urlImg}${src}`
 }

@@ -60,6 +60,7 @@ const Noticias = () => {
                 <div className={styles.agrupaNoticias}>
                     <div className={styles.noticiaComImg}>
                         <a>
+                            <span className={styles.leiaMais}><RiAddCircleFill style={{fontSize: "15"}}/> Leia mais.</span>
                             <div className={styles.envolveImagem}>
                               <Image
                                 className={styles.teste}

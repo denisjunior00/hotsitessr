@@ -23,6 +23,7 @@ export default function Menu({children}) {
   const stylesPadrao = {
     backgroundColor: defaultColors.primary
   }
+  
 
   const [menuAberto, setMenuAberto] = useState(false);
 

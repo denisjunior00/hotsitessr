@@ -8,7 +8,15 @@ import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
 
-export default function  Home({destaques}) {
+export default function  Home({data}) {
+
+  const {destaques, ultimasnoticias} = data
+
+    console.log(data)
+  const [listaNoticias, setListaNoticias] = useState(true)
+  useEffect(() => {
+    setListaNoticias(false)
+  }, [])
 
   let inputMarcas = []
   let inputModelo = []
@@ -45,7 +53,16 @@ export default function  Home({destaques}) {
         <ListagemVeiculos anuncios={destaques}/>
       </div>     
     </div>
-    <Noticias/>
+    {
+    
+      !listaNoticias ?
+      <>        
+        <Noticias noticias={ultimasnoticias}/>
+      </>
+      :
+      null
+    }
+    
     </>
   )
 }
@@ -55,23 +72,31 @@ export async function getStaticProps(){
   let loja  = lojaId
   try {
     let body = JSON.stringify({
-      acao : "destaques"
-      , loja : loja
-      , resultados : 8
+      "acoes": 
+        [
+          {
+            "acao": "destaques",
+            "params":{"resultados": 8 }
+          },
+          {
+            "acao": "ultimasnoticias",
+            "params":{"resultados": 7}
+          },
+        ],
+      "loja": lojaId
     })  
 
-    const data = await fetch(url,{
+    const response = await fetch(url,{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     })
 
-    const destaques = await data.json()
-
-
+    const data = await response.json()
     return {    
-      props: {destaques}
+      props: {data}
     }
+
   } catch(e) {
     return {
       notFound: true

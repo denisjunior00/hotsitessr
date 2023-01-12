@@ -3,8 +3,8 @@ import axios from "axios";
 
 const urlImg = "https://static-dev.shopcar.com.br/"
 
-let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/shopcar_multiplos.php'
-let lojaId          = ["1722"]
+let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/hotsites.php'
+let lojaId          = 1722
 
 const api = axios.create({
     baseURL: urlRequisicao,    

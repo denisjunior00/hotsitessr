@@ -25,6 +25,7 @@ export default function  Home({data}) {
   }, [marca])
 
   async function getModelos() {
+    return
     let body = JSON.stringify({
       "acoes": 
         [         
@@ -60,7 +61,7 @@ export default function  Home({data}) {
               !loadingSelect ?
               <>
                 <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
-                {/* <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} /> */}
+                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
               </>
               :
               null

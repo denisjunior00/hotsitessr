@@ -5,8 +5,7 @@ import { lojaId, urlRequisicao } from "../../utils";
 import styles from './listagemVeiculos.module.scss'
 
 export default function ListagemVeiculos({anuncios}) {  
-  return(
-    
+  return(    
     
     anuncios.length ? 
     <div className={styles.listagemAnuncios}>
@@ -18,7 +17,7 @@ export default function ListagemVeiculos({anuncios}) {
         })
         }   
     </div> 
-    : <div className={styles.listagemSemAnuncio}> Nenhum anuncio encontrado! </div>
+    : <div className={styles.listagemSemAnuncio}>Nenhum anuncio encontrado!</div>
   ) 
 }
 

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const urlImg = "https://static-dev.shopcar.com.br/"
 
-let urlRequisicao   = 'https://dev.shopcar.com.br/webservice/hotsites.php'
+let urlRequisicao   = 'https://api-dev.shopcar.com.br/hotsites/'
 let lojaId          = 1722
 
 const api = axios.create({
@@ -20,6 +20,9 @@ const defaultColors = {
 function loaderImagens({src, width, quality}) {
     return `${urlImg}${src}`
 }
+function loaderImagensLocal({src, width, quality}) {
+    return `${src}`
+}
 
 
 const formatadorValor = (valor) => {
@@ -31,5 +34,5 @@ const formatadorValor = (valor) => {
     return 'R$ ' + v;
 }
 
-export {defaultColors, loaderImagens, api, lojaId, urlRequisicao, formatadorValor};
+export {defaultColors, loaderImagens, api, lojaId, urlRequisicao, loaderImagensLocal, formatadorValor};
 

@@ -9,8 +9,6 @@
 body{
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    /* max-width: 1170px; */
-    /* overflow-y: hidden; */
 }
 
 /* criação de classes para serem compartilhadas de maneira global */

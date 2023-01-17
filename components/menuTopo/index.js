@@ -1,6 +1,6 @@
 import {FaInstagram, FaFacebookSquare} from 'react-icons/fa'
-import {defaultColors} from '../../utils'
-import logo from '../../public/img/logo.svg'
+import {defaultColors, loaderImagensLocal} from '../../utils'
+import logo from '../../public/img/logo.jpg'
 import slide1 from '../../public/img/slide/slide1.png'
 import Image from "next/image"
 import Link from "next/link"
@@ -40,7 +40,7 @@ export default function Menu({children}) {
               <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>
 
                 <a className={styles.logo} href={`/`}>                  
-                <Image width='190' height='100' src={logo}/>  
+                <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </a>
                 <div className={styles.links}>
                   <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>
@@ -69,12 +69,12 @@ export default function Menu({children}) {
 
               <div className={styles.conteudoMenuTelaPequena}>
                 <a className={styles.logo} href={`/`}>
-                  <Image width='150' height='75' src={logo}/>  
+                  <Image width='150' height='75' alt="nomeSite" src={logo}/>
                 </a>
                 <div/>
                 <nav className={styles.MenuMobile}>
                   {/* <input type='checkbox' id='bt_menuMobile' style={{display:"none"}} className={styles.bt_menuMobile} /> */}
-                  <label onClick={() => setMenuAberto(!menuAberto)} className={styles.botaoAbrirMenuMobile} style={{textAlign: "end", paddingRight: "15"}} for="bt_menuMobile">&#9776;</label>
+                  <label onClick={() => setMenuAberto(!menuAberto)} className={`${styles.botaoAbrirMenuMobile} bt_menuMobile `} style={{textAlign: "end", paddingRight: "15"}}>&#9776;</label>
                     <ul className={menuAberto ? styles.containerItensMenuMobileAberto : styles.containerItensMenuMobileFechado}>
                       <li>
                         <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>

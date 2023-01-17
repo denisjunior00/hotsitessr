@@ -64,7 +64,9 @@ const Noticias = ({noticias}) => {
                                 className={styles.teste}
                                 loader={loaderImagens}
                                 src= {`${noticias[0].art_foto1}`}
-                                fill                                
+                                fill      
+                                sizes="(max-width: 100px) 100vw"
+                                alt={noticias[0].art_titulo}                        
                             />
                             </div>
                             <p>{`${noticias[0].art_titulo}`}</p>
@@ -76,7 +78,7 @@ const Noticias = ({noticias}) => {
                         noticias.map((noticia, index) => {
                             if(index == 0) return null
                             return(
-                            <a>{noticia.art_titulo}</a>
+                            <a key={index}>{noticia.art_titulo}</a>
                             )
                         })
                         }

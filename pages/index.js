@@ -1,30 +1,50 @@
 
 import React, { useEffect, useState } from 'react'
 import CardAnuncio from "../components/cardAnuncio";
-import { lojaId, urlRequisicao } from "../utils";
+import { lojaId, urlRequisicao, fetcher } from "../utils";
 import ListagemVeiculos from '../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
 
+
 export default function  Home({data}) {
 
-  const {destaques, ultimasnoticias} = data
-
-    console.log(data)
-  const [listaNoticias, setListaNoticias] = useState(true)
-  useEffect(() => {
-    setListaNoticias(false)
-  }, [])
-
-  let inputMarcas = []
-  let inputModelo = []
-
+  const {destaques, ultimasnoticias, marcas} = data
+  const [marca, setMarca] = useState({ value: "Marca", label: "Marca" })
+  const [modelos, setModelos] = useState([])
+  const [modelo, setModelo] = useState({ value: 'Modelo', label: 'Modelo'})
   const [loadingSelect, setLoadingSelect] = useState(true)
+
   useEffect(() => {
     setLoadingSelect(false)
   }, [])
+  useEffect(() => {
+    getModelos()
+  }, [marca])
+
+  async function getModelos() {
+    let body = JSON.stringify({
+      "acoes": 
+        [         
+          {
+            "acao": "modelos",
+            "params":{ "marca": marca }
+          }
+        ],
+      "loja": lojaId
+    })
+    const response = await fetch(urlRequisicao,{
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body
+    })
+  
+    const data = await response.json()
+    setModelos(data.modelos)
+  
+  }  
 
   return(
 
@@ -39,15 +59,15 @@ export default function  Home({data}) {
               
               !loadingSelect ?
               <>
-                <Select className={styles.buscaMarcas} options={inputMarcas} defaultValue={{ value: 'Marca', label: 'Marca' }} />
-                <Select className={styles.buscaModelos} options={inputModelo} defaultValue={{ value: 'Modelo', label: 'Modelo'}} />
+                <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
+                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
               </>
               :
               null
               
             }
             
-            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar</button>
+            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>         
         </div>
         <ListagemVeiculos anuncios={destaques}/>
@@ -55,10 +75,8 @@ export default function  Home({data}) {
     </div>
     {
     
-      !listaNoticias ?
-      <>        
+      ultimasnoticias ?             
         <Noticias noticias={ultimasnoticias}/>
-      </>
       :
       null
     }
@@ -69,7 +87,6 @@ export default function  Home({data}) {
 
 export async function getStaticProps(){
   let url   = urlRequisicao
-  let loja  = lojaId
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -82,9 +99,16 @@ export async function getStaticProps(){
             "acao": "ultimasnoticias",
             "params":{"resultados": 7}
           },
+          {
+            "acao": "marcas",
+          },
+          {
+            "acao": "modelos",
+            "params":{ "marca": "ASA" }
+          }
         ],
       "loja": lojaId
-    })  
+    }) 
 
     const response = await fetch(url,{
       method: 'POST',

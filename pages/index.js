@@ -100,11 +100,7 @@ export async function getStaticProps(){
           },
           {
             "acao": "marcas",
-          },
-          {
-            "acao": "modelos",
-            "params":{ "marca": "ASA" }
-          }
+          }         
         ],
       "loja": lojaId
     }) 

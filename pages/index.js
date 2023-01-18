@@ -56,7 +56,7 @@ export default function  Home({data}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            {
+            {/* {
               
               !loadingSelect ?
               <>
@@ -66,7 +66,7 @@ export default function  Home({data}) {
               :
               null
               
-            }
+            } */}
             
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>         
@@ -87,7 +87,6 @@ export default function  Home({data}) {
 }
 
 export async function getStaticProps(){
-  let url   = urlRequisicao
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -111,7 +110,7 @@ export async function getStaticProps(){
       "loja": lojaId
     }) 
 
-    const response = await fetch(url,{
+    const response = await fetch(urlRequisicao,{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body

@@ -21,7 +21,7 @@ export default function  Home({data}) {
     setLoadingSelect(false)
   }, [])
   useEffect(() => {
-    getModelos()
+    if(marca != "Marca")getModelos()
   }, [marca])
 
   async function getModelos() {
@@ -46,42 +46,40 @@ export default function  Home({data}) {
   
   }  
 
-  return(
+  return(    
 
-    <div>teste</div>
-
-    // <>   
+    <>   
     
-    // <div className={styles.container}>
-    //   <div className={styles.envolveBusca}>
-    //     <div className={styles.buscaVeiculos}>
-    //       <p className={styles.titulo}>Veículos em destaque</p>
-    //       <form className={styles.busca}>
-    //         {              
-    //           !loadingSelect ?
-    //           <>
-    //             <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
-    //             <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
-    //           </>
-    //           :
-    //           null              
-    //         }
+    <div className={styles.container}>
+      <div className={styles.envolveBusca}>
+        <div className={styles.buscaVeiculos}>
+          <p className={styles.titulo}>Veículos em destaque</p>
+          <form className={styles.busca}>
+            {              
+              !loadingSelect ?
+              <>
+                <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
+                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
+              </>
+              :
+              null              
+            }
             
-    //         <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
-    //       </form>         
-    //     </div>
-    //     <ListagemVeiculos anuncios={destaques}/>
-    //   </div>     
-    // </div>
-    // {
+            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
+          </form>         
+        </div>
+        <ListagemVeiculos anuncios={destaques}/>
+      </div>     
+    </div>
+    {
     
-    //   ultimasnoticias ?             
-    //     <Noticias noticias={ultimasnoticias}/>
-    //   :
-    //   null
-    // }
+      ultimasnoticias ?             
+        <Noticias noticias={ultimasnoticias}/>
+      :
+      null
+    }
     
-    // </>
+    </>
   )
 }
 

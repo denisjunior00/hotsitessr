@@ -25,7 +25,6 @@ export default function  Home({data}) {
   }, [marca])
 
   async function getModelos() {
-    return
     let body = JSON.stringify({
       "acoes": 
         [         
@@ -56,7 +55,7 @@ export default function  Home({data}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            {/* {
+            {
               
               !loadingSelect ?
               <>
@@ -66,21 +65,21 @@ export default function  Home({data}) {
               :
               null
               
-            } */}
+            }
             
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>         
         </div>
-        <ListagemVeiculos anuncios={destaques}/>
+        {/* <ListagemVeiculos anuncios={destaques}/> */}
       </div>     
     </div>
-    {
+    {/* {
     
       ultimasnoticias ?             
         <Noticias noticias={ultimasnoticias}/>
       :
       null
-    }
+    } */}
     
     </>
   )

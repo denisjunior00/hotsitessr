@@ -17,34 +17,34 @@ export default function  Home({data}) {
   const [modelo, setModelo] = useState("Modelo")
   const [loadingSelect, setLoadingSelect] = useState(true)
 
-  useEffect(() => {
-    setLoadingSelect(false)
-  }, [])
-  useEffect(() => {
-    if(marca != "Marca")getModelos()
-  }, [marca])
+  // useEffect(() => {
+  //   setLoadingSelect(false)
+  // }, [])
+  // useEffect(() => {
+  //   if(marca != "Marca")getModelos()
+  // }, [marca])
 
-  async function getModelos() {
-    let body = JSON.stringify({
-      "acoes": 
-        [         
-          {
-            "acao": "modelos",
-            "params":{ "marca": marca }
-          }
-        ],
-      "loja": lojaId
-    })
-    const response = await fetch(urlRequisicao,{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
+  // async function getModelos() {
+  //   let body = JSON.stringify({
+  //     "acoes": 
+  //       [         
+  //         {
+  //           "acao": "modelos",
+  //           "params":{ "marca": marca }
+  //         }
+  //       ],
+  //     "loja": lojaId
+  //   })
+  //   const response = await fetch(urlRequisicao,{
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: body
+  //   })
   
-    const data = await response.json()
-    setModelos(data.modelos)
+  //   const data = await response.json()
+  //   setModelos(data.modelos)
   
-  }  
+  // }  
 
   return(    
 

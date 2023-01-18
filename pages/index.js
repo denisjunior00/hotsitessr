@@ -70,16 +70,16 @@ export default function  Home({data}) {
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>         
         </div>
-        <ListagemVeiculos anuncios={destaques}/>
+        {/* <ListagemVeiculos anuncios={destaques}/> */}
       </div>     
     </div>
-    {/* {
+    {
     
       ultimasnoticias ?             
         <Noticias noticias={ultimasnoticias}/>
       :
       null
-    } */}
+    }
     
     </>
   )

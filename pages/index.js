@@ -17,9 +17,9 @@ export default function  Home({data}) {
   const [modelo, setModelo] = useState("Modelo")
   const [loadingSelect, setLoadingSelect] = useState(true)
 
-  // useEffect(() => {
-  //   setLoadingSelect(false)
-  // }, [])
+  useEffect(() => {
+    setLoadingSelect(false)
+  }, [])
   // useEffect(() => {
   //   if(marca != "Marca")getModelos()
   // }, [marca])
@@ -71,8 +71,7 @@ export default function  Home({data}) {
         <ListagemVeiculos anuncios={destaques}/>
       </div>     
     </div>
-    {
-    
+    {    
       ultimasnoticias ?             
         <Noticias noticias={ultimasnoticias}/>
       :
@@ -118,8 +117,7 @@ export async function getStaticProps(){
     return {
       notFound: true
     }
-  }
-  
+  } 
   
 }
 

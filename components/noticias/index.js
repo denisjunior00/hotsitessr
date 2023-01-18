@@ -5,52 +5,6 @@ import { formatadorValor, loaderImagens } from '../../utils/index';
 import { RiAddCircleFill } from 'react-icons/ri'
 
 const Noticias = ({noticias}) => {
-
-    // const noticias = [
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "stored/news/1623958694_23134.jpg"
-    //     },
-
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "../../public/img/imgTeste"
-    //     },
-
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design novo design Honda apresenta CG 2022 com novo design Honda apresenta CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "../../public/img/imgTeste"
-    //     },
-
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "../../public/img/imgTeste"
-    //     },
-
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "../../public/img/imgTeste"
-    //     },
-
-    //     {        
-    //         art_id: "15994",
-    //         art_titulo: "Honda apresenta CG 2022 com novo design Honda apresenta CG 2022 com novo design Honda apresenta CG 2022 com novo design",
-    //         art_data: "1623958500",
-    //         art_foto1: "stored/news/1623958694_23134.jpg"
-    //     },
-        
-    // ]
-
     return(
         <div className={styles.container}>
             <div className={styles.envolveNoticias}>

@@ -12,9 +12,9 @@ import Noticias from '../components/noticias';
 export default function  Home({data}) {
 
   const {destaques, ultimasnoticias, marcas} = data
-  const [marca, setMarca] = useState({ value: "Marca", label: "Marca" })
+  const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
-  const [modelo, setModelo] = useState({ value: 'Modelo', label: 'Modelo'})
+  const [modelo, setModelo] = useState("Modelo")
   const [loadingSelect, setLoadingSelect] = useState(true)
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function  Home({data}) {
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>
           <form className={styles.busca}>
-            {/* {
+            {
               
               !loadingSelect ?
               <>
@@ -65,12 +65,12 @@ export default function  Home({data}) {
               :
               null
               
-            } */}
+            }
             
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>         
         </div>
-        {/* <ListagemVeiculos anuncios={destaques}/> */}
+        <ListagemVeiculos anuncios={destaques}/>
       </div>     
     </div>
     {

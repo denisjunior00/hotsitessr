@@ -9,9 +9,9 @@ import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
 
 
-export default function  Home({data}) {
+export default function  Home({data}) { 
 
-  const {destaques, ultimasnoticias, marcas} = data
+  const {destaques, ultimasnoticias, marcas, dadosloja} = data
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
   const [modelo, setModelo] = useState("Modelo")
@@ -65,7 +65,7 @@ export default function  Home({data}) {
             }
             
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
-          </form>         
+          </form>
         </div>
         <ListagemVeiculos anuncios={destaques}/>
       </div>     
@@ -75,8 +75,7 @@ export default function  Home({data}) {
         <Noticias noticias={ultimasnoticias}/>
       :
       null
-    }
-    
+    }    
     </>
   )
 }
@@ -86,6 +85,9 @@ export async function getStaticProps(){
     let body = JSON.stringify({
       "acoes": 
         [
+          {
+            "acao": "dadosloja"
+          },
           {
             "acao": "destaques",
             "params":{"resultados": 8 }

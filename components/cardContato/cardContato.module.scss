@@ -20,7 +20,9 @@
     }
 
     .telefonesLoja{
-        color: #337ab7;
+        .iconeWpp{
+            background-color: rgb(24, 201, 24);
+        }
     }
 
     .mapaLoja{
@@ -29,6 +31,11 @@
         border-color: red;
         width: 55px;
         cursor: pointer;
+        border-radius: 4px;
+    }
+    .mapaLoja:hover{
+        color: white;
+        background-color: red;
     }
 
 }

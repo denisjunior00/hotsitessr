@@ -73,7 +73,6 @@ export default function Menu({children}) {
                 </a>
                 <div/>
                 <nav className={styles.MenuMobile}>
-                  {/* <input type='checkbox' id='bt_menuMobile' style={{display:"none"}} className={styles.bt_menuMobile} /> */}
                   <label onClick={() => setMenuAberto(!menuAberto)} className={`${styles.botaoAbrirMenuMobile} bt_menuMobile `} style={{textAlign: "end", paddingRight: "15"}}>&#9776;</label>
                     <ul className={menuAberto ? styles.containerItensMenuMobileAberto : styles.containerItensMenuMobileFechado}>
                       <li>

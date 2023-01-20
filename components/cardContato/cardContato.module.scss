@@ -2,41 +2,52 @@
     background-color: white;
     box-shadow: #00000030 0px 10px 30px;
     border-radius: 5px;
-    padding: 30px;
+    padding: 20px;
     display: flex;
-    flex-direction: column;
-    gap: 10px 0;
+    // flex-direction: column;
+    gap: 20px;
+    .envolveDadosLoja{
+        display: flex;
+        flex-direction: column;
+        // border: 1px solid;
+        padding: 10px;
+        gap: 3px;
 
-    .nomeLoja{
-        color: red;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 18px;
-    }
-
-    .enderecoLoja{
-        color: #151515;;
-        font-weight: bold;
-    }
-
-    .telefonesLoja{
-        .iconeWpp{
-            background-color: rgb(24, 201, 24);
+        .nomeLoja{
+            color: red;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 18px;
         }
-    }
-
-    .mapaLoja{
-        color: red;
-        border: 1px solid;
-        border-color: red;
-        width: 55px;
-        cursor: pointer;
-        border-radius: 4px;
-    }
-    .mapaLoja:hover{
-        color: white;
-        background-color: red;
-    }
+    
+        .enderecoLoja{
+            color: #151515;;
+            font-weight: bold;
+        }
+    
+        .telefonesLoja{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 2px 0;
+            // .iconeWpp{
+            //     background-color: rgb(24, 201, 24);
+            // }
+        }
+    
+        .mapaLoja{
+            color: red;
+            border: 1px solid;
+            border-color: red;
+            width: 55px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .mapaLoja:hover{
+            color: white;
+            background-color: red;
+        }
+    }   
 
 }
 

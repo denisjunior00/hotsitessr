@@ -2,11 +2,6 @@ import Image from "next/image"
 import styles from "./cardAnuncio.module.scss"
 import { formatadorValor, loaderImagens } from '../../utils/index';
 
-
-
-
-
-
 const CardAnuncio = ({anuncio}) => {    
 
     
@@ -22,11 +17,6 @@ const CardAnuncio = ({anuncio}) => {
     //     vei_foto: "stored/veiculos/1669985140_34973pd.jpg"
     // }
     
-    
-
-   
-
-
     return(
         <>       
         

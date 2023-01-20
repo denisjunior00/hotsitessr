@@ -52,7 +52,7 @@ export default function  Home({data}) {
     
     <div className={styles.container}>
       <div className={styles.cardContatos}>
-        <CardContato/>
+        <CardContato dadosloja={dadosloja}/>
       </div>
       <div className={styles.envolveBusca}>
         <div className={styles.buscaVeiculos}>
@@ -66,8 +66,7 @@ export default function  Home({data}) {
               </>
               :
               null              
-            }
-            
+            }            
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>
         </div>

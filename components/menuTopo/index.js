@@ -107,11 +107,7 @@ export default function Menu({children}) {
                 </nav>
 
                 
-              </div>
-
-              <div className={styles.cardContatos}>
-                <CardContato/>
-              </div>
+              </div>              
               
             </div>          
             

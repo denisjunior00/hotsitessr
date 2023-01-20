@@ -7,6 +7,7 @@ import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
+import CardContato from '../components/cardContato';
 
 
 export default function  Home({data}) { 
@@ -15,7 +16,7 @@ export default function  Home({data}) {
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
   const [modelo, setModelo] = useState("Modelo")
-  const [loadingSelect, setLoadingSelect] = useState(true)
+  const [loadingSelect, setLoadingSelect] = useState(true)  
 
   useEffect(() => {
     setLoadingSelect(false)
@@ -47,9 +48,12 @@ export default function  Home({data}) {
   }  
   return(    
 
-    <>   
+    <>      
     
     <div className={styles.container}>
+      <div className={styles.cardContatos}>
+        <CardContato/>
+      </div>
       <div className={styles.envolveBusca}>
         <div className={styles.buscaVeiculos}>
           <p className={styles.titulo}>Veículos em destaque</p>

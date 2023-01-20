@@ -71,7 +71,10 @@ export default function  Home({data}) {
           </form>
         </div>
         <ListagemVeiculos anuncios={destaques}/>
-      </div>     
+      </div>    
+      <div className={styles.cardContatosMobile}>
+        <CardContato dadosloja={dadosloja}/>
+      </div>
     </div>
     {    
       ultimasnoticias ?             

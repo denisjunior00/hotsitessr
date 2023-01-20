@@ -77,7 +77,6 @@ export default function CardContato({dadosloja}) {
   return(    
     <nav className={styles.dadosLoja}>{  
         dadosloja.map((item, index) => {
-          console.log(item.loj_nome)
           return(          
             <div key={index} className={styles.envolveDadosLoja}>
               <p  className={styles.nomeLoja}>{item.loj_nome}</p>

@@ -6,15 +6,11 @@ import Rodape from '../components/rodape'
 export default function App({ Component, pageProps }) {
   return(
     <div>
-    
       <Menu/>
-        <div className={styles.container}>
-          <Component {...pageProps} />  
-        </div>    
-      <Rodape/>
-    
-    </div>
-    
-  )
-  
+      <div className={styles.container}>
+        <Component {...pageProps} /> 
+      </div>     
+      <Rodape/>   
+    </div>    
+  )  
 }

@@ -39,31 +39,31 @@ export default function Menu({children}) {
 
               <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>
 
-                <a className={styles.logo} href={`/`}>                  
+                <Link className={styles.logo} href={`/`}>                  
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
-                </a>
+                </Link>
                 <div className={styles.links}>
-                  <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>
-                      PAGÍNA INICIAL
+                  <Link className={styles.linksMenu} href={'/'} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>
+                    PAGÍNA INICIAL
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/loja'} onClick={(evento) => handleClick(evento, "/loja")} style={{color: activeRoute == '/loja' ? defaultColors.primary : defaultColors.secundary}}>
+                    A LOJA
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/estoque'} onClick={(evento) => handleClick(evento, "/estoque")} style={{color: activeRoute == '/estoque' ? defaultColors.primary : defaultColors.secundary}} >
+                    NOSSO ESTOQUE
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/pedidos'} onClick={(evento) => handleClick(evento, "/pedidos")} style={{color: activeRoute == '/pedidos' ? defaultColors.primary : defaultColors.secundary}}>
+                    BANCO DE PEDIDOS
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/contato'} onClick={(evento) => handleClick(evento, "/contato")} style={{color: activeRoute == '/contato' ? defaultColors.primary : defaultColors.secundary}}>
+                    CONTATO
+                  </Link>
+                  <a href=''>
+                    <FaInstagram className={styles.iconeInstagram}/>
                   </a>
-                  <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/loja")} style={{color: activeRoute == '/loja' ? defaultColors.primary : defaultColors.secundary}}>
-                      A LOJA
+                  <a href=''>
+                    <FaFacebookSquare className={styles.iconeFacebook}/>
                   </a>
-                  <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/estoque")} style={{color: activeRoute == '/estoque' ? defaultColors.primary : defaultColors.secundary}} >
-                      NOSSO ESTOQUE
-                  </a>
-                  <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/pedidos")} style={{color: activeRoute == '/pedidos' ? defaultColors.primary : defaultColors.secundary}}>
-                      BANCO DE PEDIDOS
-                  </a>
-                  <a className={styles.linksMenu} onClick={(evento) => handleClick(evento, "/contato")} style={{color: activeRoute == '/contato' ? defaultColors.primary : defaultColors.secundary}}>
-                      CONTATO
-                  </a>
-                  <a>
-                      <FaInstagram className={styles.iconeInstagram}/>
-                    </a>
-                    <a>
-                      <FaFacebookSquare className={styles.iconeFacebook}/>
-                    </a>
                 </div>
               </nav>
 

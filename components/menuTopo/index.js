@@ -12,8 +12,9 @@ import CardContato from '../cardContato'
 
 export default function Menu({children}) { 
   const router = useRouter()
-
   const activeRoute = router.pathname
+  const [menuAberto, setMenuAberto] = useState(false)
+  const [indexBg, setIndexBg] = useState(0)
     
   const handleClick = (evento, rota) => {
     evento.preventDefault()
@@ -23,18 +24,35 @@ export default function Menu({children}) {
   const stylesPadrao = {
     backgroundColor: defaultColors.primary
   }
-  
 
-  const [menuAberto, setMenuAberto] = useState(false);
+  // const [indexBg, setIndexBg] = useState(0)
+  let slides = [styles.bg01, styles.bg02, styles.bg03]
+
+  function mudarSlide() {
+    if(indexBg == 2) return setIndexBg(0)
+    setIndexBg(indexBg + 1)
+
+  }
+  
+  useEffect(() => {
+    mudarSlide()
+  }, [])    
+
+  useEffect(() => {
+    setTimeout(() => {
+      mudarSlide()
+    }, 8000);
+  }, [indexBg])    
+
+
+
 
     return (
       
           <>
 
-          <div className={styles.container}>
-
-            {/* <Image src={slide1}/> */}
-
+          <div className={`${styles.container} ${activeRoute == '/' ? slides[indexBg] : ''}`}>
+            
             <div className={styles.envolveMenu}>
 
               <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>

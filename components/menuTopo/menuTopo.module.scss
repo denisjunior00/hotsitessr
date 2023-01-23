@@ -6,15 +6,29 @@
 //     align-items: center;
 // }
 
+.bg01{
+    background-image: url("/img/slide/bg1.jpg");
+    height: 700px;
+}
+
+.bg02{
+    background-image: url("/img/slide/bg2.jpg");
+    height: 700px;
+}
+
+.bg03{
+    background-image: url("/img/slide/bg3.jpg");
+    height: 700px;
+}
+
 .container{
 
     position: relative;
-    background-image: url("/img/slide/slide1.png");
+    // background-image: url("/img/slide/slide1.png");
     background-repeat:no-repeat;    
     background-size:cover;
     background-position: center;
     padding-top: 30px;
-   
 
     .envolveMenu{
         max-width: 1170px;
@@ -44,9 +58,7 @@
 
 @media screen {
     @media (min-width: 1250px) {
-        .container{
-
-            height: 750px;
+        .container{ 
 
             .conteudoMenuTelaGrande{                
                 box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

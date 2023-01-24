@@ -83,11 +83,17 @@ export default function CardContato({dadosloja}) {
               <p className={styles.enderecoLoja}>{item.loj_endereco}</p>
               <div>
                 <span className={styles.telefonesLoja}>{item.loj_telefone_app.map((telefone, index) => {
-                  
-                  return(
-                    <a className={styles.telefones} key={index}> {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> : <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15' }}/>} {telefone.telefone} {index == item.loj_telefone_app.length-1 ? "" : "|" }</a>
+                    // let listaStr = ["(" / ")"]      
+                    return(
+                      <a className={styles.telefones} key={index} href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${telefone.telefone.replace(/[\(\)\.\s-]+/g,'')}`} target="_blank">
+                        {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> 
+                        :
+                        <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15' }}/>}
+                        {telefone.telefone} {index == item.loj_telefone_app.length-1 ? "" : "|" }
+                      </a>
+                    )}
                   )}
-                )}</span>
+                </span>
               </div>      
               <span className={styles.mapaLoja}><MdLocationOn style={{ marginBottom: '-2' }}/>Mapa</span>
             </div>            

@@ -43,10 +43,7 @@ export default function Menu({children}) {
       mudarSlide()
     }, 8000);
   }, [indexBg])    
-
-
-
-
+  
     return (
       
           <>

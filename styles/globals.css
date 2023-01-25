@@ -13,6 +13,11 @@ body{
 
 /* criação de classes para serem compartilhadas de maneira global */
 .backgroundPadrao{
-    background-color: red;
+    background-color: #fff;
 }
+
+.corTema{
+    color: rgb(255, 0, 0); 
+}
+
 

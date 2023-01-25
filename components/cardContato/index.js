@@ -83,7 +83,6 @@ export default function CardContato({dadosloja}) {
               <p className={styles.enderecoLoja}>{item.loj_endereco}</p>
               <div>
                 <span className={styles.telefonesLoja}>{item.loj_telefone_app.map((telefone, index) => {
-                    // let listaStr = ["(" / ")"]      
                     return(
                       <a className={styles.telefones} key={index} href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${telefone.telefone.replace(/[\(\)\.\s-]+/g,'')}`} target="_blank">
                         {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> 
@@ -93,10 +92,13 @@ export default function CardContato({dadosloja}) {
                       </a>
                     )}
                   )}
-                </span>
-              </div>      
-              <span className={styles.mapaLoja}><MdLocationOn style={{ marginBottom: '-2' }}/>Mapa</span>
-            </div>            
+                </span>                
+              </div>
+              <div className={styles.envolveMapaHorarios}>
+                <button className={`${styles.botaoHorariosAtendimento}`}>Horários de atendimento</button>
+                <span className={styles.mapaLoja}><MdLocationOn style={{ marginBottom: '-2' }}/>Mapa</span>
+              </div>              
+            </div>
           )
         })
       }

@@ -24,7 +24,7 @@ export default function CardContato({dadosloja}) {
   }
   function closeModal() {
     setIsOpen(false);
-  }   
+  }  
 
   return(
     <>
@@ -32,7 +32,7 @@ export default function CardContato({dadosloja}) {
           dadosloja.map((item, index) => {
             return(          
               <div key={index} className={styles.envolveDadosLoja}>
-                <p  className={styles.nomeLoja}>{item.loj_nome}</p>
+                <p className={styles.nomeLoja}>{item.loj_nome}</p>
                 <p className={styles.enderecoLoja}>{item.loj_endereco}</p>
                 <div>
                   <span className={styles.telefonesLoja}>{item.loj_telefone_app.map((telefone, index) => {
@@ -61,6 +61,7 @@ export default function CardContato({dadosloja}) {
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
+        ariaHideApp={false}
       >               
         <div className={styles.listaHorarios}>
           <div className={styles.tituloHorarios}>HORÁRIOS DE ATENDIMENTO.</div>
@@ -68,9 +69,9 @@ export default function CardContato({dadosloja}) {
             { 
               dadosloja[0].loj_horarios_atendimento 
               ? 
-                Object.entries(dadosloja[0].loj_horarios_atendimento).map(([nomeDia, horarios], index) => {
+                Object.entries(dadosloja[0].loj_horarios_atendimento).map(([nomeDia, horarios], index) => {                  
                     return(
-                      <div className={styles.envolveHorarios}>
+                      <div key={index} className={styles.envolveHorarios}>
                         <div className={styles.horarios}>
                           <span className={styles.nomeDia}>{nomeDia.replace('hor', '').toUpperCase()}</span>
                           <div className={styles.envolveHoras}>                                                     

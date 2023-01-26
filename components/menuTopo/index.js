@@ -19,24 +19,18 @@ export default function Menu({children}) {
     evento.preventDefault()
     router.push(rota)
   }  
-
   const stylesPadrao = {
     backgroundColor: defaultColors.primary
   }
-
-  // const [indexBg, setIndexBg] = useState(0)
   let slides = [styles.bg01, styles.bg02, styles.bg03]
-
   function mudarSlide() {
     if(indexBg == 2) return setIndexBg(0)
     setIndexBg(indexBg + 1)
 
-  }
-  
+  }  
   useEffect(() => {
     mudarSlide()
   }, [])    
-
   useEffect(() => {
     setTimeout(() => {
       mudarSlide()
@@ -119,7 +113,6 @@ export default function Menu({children}) {
                       
                     </ul>
                 </nav>
-
                 
               </div>              
               

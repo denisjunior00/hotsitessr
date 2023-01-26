@@ -1,108 +1,93 @@
 import {RiPhoneFill, RiWhatsappLine} from 'react-icons/ri'
 import {MdLocationOn} from 'react-icons/md'
+import {FaRegCalendarTimes} from 'react-icons/fa'
 import styles from './cardContato.module.scss'
+import Modal from 'react-modal';
+import { useState } from 'react'
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  },
+};
 
 export default function CardContato({dadosloja}) {  
-  // const dadosloja = [
-  //     {
-  //       loj_id: "1722",
-  //       loj_nome: "Loja para testes Denis",
-  //       loj_endereco: "R Joao Pedro de Souza - monte libano - Campo Grande / MS",
-  //       loj_telefone: "(67) 99546-4154 / (67) 94002-8922 / (67) 99310-2540 / (67) 98088-4504 ",
-  //       loj_email: "denis.silva.ju@gmail.com",
-  //       loj_foto: "",
-  //       loj_latitude: "",
-  //       loj_longitude: "",
-  //       loj_telefone_app: [
-  //           {
-  //               telefone: "(67) 99546-4154",
-  //               aplicativo: "1"
-  //           },
-  //           {
-  //               telefone: "(67) 94002-8922",
-  //               aplicativo: "1"
-  //           },
-  //           {
-  //               telefone: "(67) 99310-2540",
-  //               aplicativo: "1"
-  //           },
-  //           {
-  //               telefone: "(67) 3384-7070",
-  //               aplicativo: "0"
-  //           },
-  //           {
-  //             telefone: "(67) 99310-2540",
-  //             aplicativo: "1"
-  //         },
-  //         {
-  //             telefone: "(67) 3384-7070",
-  //             aplicativo: "0"
-  //         }
-  //       ]
-  //   },
 
-  //   {
-  //     loj_id: "1723",
-  //     loj_nome: "Loja para testes Denis 2",
-  //     loj_endereco: "R Joao Pedro de Souza - monte libano - Campo Grande / MS",
-  //     loj_telefone: "(67) 99546-4154 / (67) 94002-8922 / (67) 99310-2540 / (67) 98088-4504 ",
-  //     loj_email: "denis.silva.ju@gmail.com",
-  //     loj_foto: "",
-  //     loj_latitude: "",
-  //     loj_longitude: "",
-  //     loj_telefone_app: [
-  //         {
-  //             telefone: "(67) 99546-4154",
-  //             aplicativo: "1"
-  //         },
-  //         {
-  //             telefone: "(67) 94002-8922",
-  //             aplicativo: "0"
-  //         },
-  //         {
-  //             telefone: "(67) 99310-2540",
-  //             aplicativo: "1"
-  //         },
-  //         {
-  //             telefone: "(67) 3384-7070",
-  //             aplicativo: "0"
-  //         }
-  //     ]
-  //   }
-  // ]
+  const [modalIsOpen, setIsOpen] = useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal() {
+    setIsOpen(false);
+  }   
 
-  
-
-  return(    
-    <nav className={styles.dadosLoja}>{  
-        dadosloja.map((item, index) => {
-          return(          
-            <div key={index} className={styles.envolveDadosLoja}>
-              <p  className={styles.nomeLoja}>{item.loj_nome}</p>
-              <p className={styles.enderecoLoja}>{item.loj_endereco}</p>
-              <div>
-                <span className={styles.telefonesLoja}>{item.loj_telefone_app.map((telefone, index) => {
-                    return(
-                      <a className={styles.telefones} key={index} href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${telefone.telefone.replace(/[\(\)\.\s-]+/g,'')}`} target="_blank">
-                        {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> 
-                        :
-                        <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15' }}/>}
-                        {telefone.telefone} {index == item.loj_telefone_app.length-1 ? "" : "|" }
-                      </a>
+  return(
+    <>
+      <nav className={styles.dadosLoja}>{  
+          dadosloja.map((item, index) => {
+            return(          
+              <div key={index} className={styles.envolveDadosLoja}>
+                <p  className={styles.nomeLoja}>{item.loj_nome}</p>
+                <p className={styles.enderecoLoja}>{item.loj_endereco}</p>
+                <div>
+                  <span className={styles.telefonesLoja}>{item.loj_telefone_app.map((telefone, index) => {
+                      return(
+                        <a className={styles.telefones} key={index} href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${telefone.telefone.replace(/[\(\)\.\s-]+/g,'')}`} target="_blank">
+                          {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> 
+                          :
+                          <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15' }}/>}
+                          {telefone.telefone} {index == item.loj_telefone_app.length-1 ? "" : "|" }
+                        </a>
+                      )}
                     )}
-                  )}
-                </span>                
+                  </span>                
+                </div>
+                <div className={styles.envolveMapaHorarios}>
+                  {dadosloja[0].loj_horarios_atendimento ? <button onClick={openModal} className={`${styles.botaoHorariosAtendimento}`}><FaRegCalendarTimes style={{marginBottom: '-1'}}/> Horários de atendimento</button> : null }                        
+                  <span className={styles.mapaLoja}><MdLocationOn style={{ marginBottom: '-2' }}/>Mapa</span>
+                </div>              
               </div>
-              <div className={styles.envolveMapaHorarios}>
-                <button className={`${styles.botaoHorariosAtendimento}`}>Horários de atendimento</button>
-                <span className={styles.mapaLoja}><MdLocationOn style={{ marginBottom: '-2' }}/>Mapa</span>
-              </div>              
-            </div>
-          )
-        })
-      }
-    </nav>       
+            )
+          })
+        }
+      </nav>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >               
+        <div className={styles.listaHorarios}>
+          <div className={styles.tituloHorarios}>HORÁRIOS DE ATENDIMENTO.</div>
+          <div>
+            { 
+              dadosloja[0].loj_horarios_atendimento 
+              ? 
+                Object.entries(dadosloja[0].loj_horarios_atendimento).map(([nomeDia, horarios], index) => {
+                    return(
+                      <div className={styles.envolveHorarios}>
+                        <div className={styles.horarios}>
+                          <span className={styles.nomeDia}>{nomeDia.replace('hor', '').toUpperCase()}</span>
+                          <div className={styles.envolveHoras}>                                                     
+                            {horarios[0] ?  <span className={styles.horas}>{horarios[0]} - {horarios[1]}</span> : null}
+                            {horarios[2] ?  <span className={styles.horas}>{horarios[2]} - {horarios[3]}</span> : null}
+                          </div>
+                        </div>
+                      </div>
+                    )
+                })
+              : null
+            }
+          </div>
+        </div>   
+        <span onClick={closeModal} className={styles.botaoFecharHorarios}>OK</span>
+      </Modal>
+  </>
   )
     
  

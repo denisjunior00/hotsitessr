@@ -1,7 +1,6 @@
 import {FaInstagram, FaFacebookSquare} from 'react-icons/fa'
 import {defaultColors, loaderImagensLocal} from '../../utils'
 import logo from '../../public/img/logo.jpg'
-import slide1 from '../../public/img/slide/slide1.png'
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"

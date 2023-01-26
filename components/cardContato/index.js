@@ -56,7 +56,7 @@ export default function CardContato({dadosloja}) {
           })
         }
       </nav>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
@@ -87,7 +87,7 @@ export default function CardContato({dadosloja}) {
           </div>
         </div>   
         <span onClick={closeModal} className={styles.botaoFecharHorarios}>OK</span>
-      </Modal>
+      </Modal> */}
   </>
   )
     

@@ -6,7 +6,7 @@ import Rodape from '../components/rodape'
 export default function App({ Component, pageProps }) {
   return(
     <div>
-      <Menu/>
+      {/* <Menu/> */}
       <div className={styles.container}>
         <Component {...pageProps} /> 
       </div>     

@@ -9,11 +9,45 @@ import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
 import CardContato from '../components/cardContato';
 import Inicio from '../components/inicio';
-
+import Contato from '../components/contato'
+import Estoque from '../components/estoque'
+import Loja from '../components/loja'
+import Pedidos from '../components/pedidos'
 
 export default function  Home({data}) { 
+  const [pageSelecionada, setPageSelecionada] = useState('home')
 
-  return <Inicio data={data}/>
+  const pages = {
+    home : <Inicio data={data}/>,
+    loja: <Loja/>,
+    estoque: <Estoque/>,
+    pedidos: <Pedidos/>,
+    contato: <Contato/>
+  }
+
+  return (
+    <>
+    <div style={{display: 'flex',gap: 20,marginBottom: 50, Direction: 'row'}}>
+      <div onClick={() => setPageSelecionada('home')}>
+        HOME
+      </div>
+      <div onClick={() => setPageSelecionada('loja')}>
+        LOJA
+      </div>
+      <div onClick={() => setPageSelecionada('estoque')}>
+        ESTOQUE
+      </div>
+      <div onClick={() => setPageSelecionada('pedidos')}>
+        PEDIDOS
+      </div>
+      <div onClick={() => setPageSelecionada('contato')}>
+        CONTATO
+      </div>
+    </div>
+     {pages[pageSelecionada] || (<></>)}
+    </>
+  )
+    
 }
 export async function getServerSideProps(){
   

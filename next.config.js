@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  staticPageGenerationTimeout: 1000,
-  reactStrictMode: true,
-  swcMinify: true,
-  runtime: "experimental-edge",
-  experimental: {    
-    appDir: true,
-  }   
- };
+   experimental: {
+      runtime: "experimental-edge",
+    },
+    reactStrictMode: true,
+    swcMinify: true,
+  };
   
-module.exports = nextConfig;
+  module.exports = nextConfig;

@@ -11,7 +11,7 @@ import CardContato from '../components/cardContato';
 
 
 export default function  Home({data}) { 
-
+  
   const {destaques, ultimasnoticias, marcas, dadosloja} = data
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])

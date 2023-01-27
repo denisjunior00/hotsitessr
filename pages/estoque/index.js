@@ -1,7 +1,7 @@
-const Estoque = () => (
-    <div>
-        <h1>Nosso estoque.</h1>
-    </div>
-)
-
-export default Estoque;
+export default function Estoque () {
+    return(        
+        <div>
+            Estoque
+        </div>
+    )
+}

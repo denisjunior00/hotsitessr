@@ -1,7 +1,9 @@
-const Contato = () => (
-    <div>
-        <h1>Contato.</h1>
-    </div>
-)
-
-export default Contato;
+export default function Contato () {
+    return(
+        <>
+            <div>
+                Contato
+            </div>            
+        </>
+    )
+}

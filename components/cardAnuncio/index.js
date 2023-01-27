@@ -1,5 +1,6 @@
 import Image from "next/image"
 import styles from "./cardAnuncio.module.scss"
+import Link from "next/link"
 import { formatadorValor, loaderImagens } from '../../utils/index';
 
 const CardAnuncio = ({anuncio}) => {    

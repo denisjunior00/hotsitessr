@@ -1,7 +1,7 @@
-const Loja = () => (
-    <div>
-        <h1>A loja.</h1>
-    </div>
-)
-
-export default Loja;
+export default function Loja () {
+    return(        
+        <div>
+            Loja
+        </div>                    
+    )
+}

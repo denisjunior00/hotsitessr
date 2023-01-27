@@ -3,10 +3,10 @@ const nextConfig = {
   staticPageGenerationTimeout: 1000,
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    // runtime: "experimental-edge",
+  runtime: "experimental-edge",
+  experimental: {    
     appDir: true,
   }   
  };
- 
+  
 module.exports = nextConfig;

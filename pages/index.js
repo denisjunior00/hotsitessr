@@ -17,6 +17,7 @@ export default function  Home({data}) {
   const [modelos, setModelos] = useState([])
   const [modelo, setModelo] = useState("Modelo")
   const [loadingSelect, setLoadingSelect] = useState(true)  
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setLoadingSelect(false)
@@ -45,7 +46,9 @@ export default function  Home({data}) {
     const data = await response.json()
     setModelos(data.modelos)
   
-  }  
+  }
+
+
   return(    
 
     <>      
@@ -86,7 +89,7 @@ export default function  Home({data}) {
   )
 }
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -114,10 +117,10 @@ export async function getStaticProps(){
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     })
-
+    
     const data = await response.json()
     return {    
-      props: {data}
+      props: {data }
     }
 
   } catch(e) {

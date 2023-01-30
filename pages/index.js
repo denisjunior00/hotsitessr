@@ -8,14 +8,10 @@ import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../components/noticias';
 import CardContato from '../components/cardContato';
-import Inicio from '../components/inicio';
-import Contato from '../components/contato'
-import Estoque from '../components/estoque'
-import Loja from '../components/loja'
-import Pedidos from '../components/pedidos'
+
 
 export default function  Home({data}) { 
-  
+
   const {destaques, ultimasnoticias, marcas, dadosloja} = data
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
@@ -50,32 +46,47 @@ export default function  Home({data}) {
     setModelos(data.modelos)
   
   }  
-  
-  return (
-    <>
-    <div style={{display: 'flex',gap: 20,marginBottom: 50, Direction: 'row'}}>
-      <div onClick={() => setPageSelecionada('home')}>
-        HOME
+  return(    
+
+    <>      
+    
+    <div className={styles.container}>
+      <div className={styles.cardContatos}>
+        <CardContato dadosloja={dadosloja}/>
       </div>
-      <div onClick={() => setPageSelecionada('loja')}>
-        LOJA
-      </div>
-      <div onClick={() => setPageSelecionada('estoque')}>
-        ESTOQUE
-      </div>
-      <div onClick={() => setPageSelecionada('pedidos')}>
-        PEDIDOS
-      </div>
-      <div onClick={() => setPageSelecionada('contato')}>
-        CONTATO
+      <div className={styles.envolveBusca}>
+        <div className={styles.buscaVeiculos}>
+          <p className={styles.titulo}>Veículos em destaque</p>
+          <form className={styles.busca}>
+            {              
+              !loadingSelect ?
+              <>
+                <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
+                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
+              </>
+              :
+              null              
+            }            
+            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
+          </form>
+        </div>
+        <ListagemVeiculos anuncios={destaques}/>
+      </div>    
+      <div className={styles.cardContatosMobile}>
+        <CardContato dadosloja={dadosloja}/>
       </div>
     </div>
-     {pages[pageSelecionada] || (<></>)}
+    {    
+      ultimasnoticias ?             
+        <Noticias noticias={ultimasnoticias}/>
+      :
+      null
+    }    
     </>
-  )    
+  )
 }
-export async function getServerSideProps(){
-  
+
+export async function getStaticProps(){
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -103,10 +114,10 @@ export async function getServerSideProps(){
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     })
-    
+
     const data = await response.json()
     return {    
-      props: {data }
+      props: {data}
     }
 
   } catch(e) {

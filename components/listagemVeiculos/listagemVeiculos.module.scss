@@ -4,11 +4,25 @@
     display: flex;
     gap: 26.5px;
     flex-wrap: wrap;
-    padding: 10px 0;
+    padding: 10px 0;    
+    
+    .anuncios{
+        text-decoration: none;   
+    }
 }
 
 .listagemSemAnuncio{
     font-size: 25px;
     padding: 10px;
     text-align: center;
+}
+
+@media screen {   
+    @media (max-width:767px) {        
+        .listagemAnuncios{
+            justify-content: center;
+            display: block;
+           
+        }
+    }
 }

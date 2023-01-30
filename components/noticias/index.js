@@ -3,6 +3,7 @@ import styles from './noticias.module.scss'
 import Image from "next/image"
 import { formatadorValor, loaderImagens } from '../../utils/index';
 import { RiAddCircleFill } from 'react-icons/ri'
+import Link from 'next/link';
 
 const Noticias = ({noticias}) => {
     return(
@@ -11,7 +12,7 @@ const Noticias = ({noticias}) => {
                 <h2 className={styles.titulo}>Últimas notícias</h2>
                 <div className={styles.agrupaNoticias}>
                     <div className={styles.noticiaComImg}>
-                        <a>
+                        <Link href={'/visualizarNoticia'} className={styles.linkNoticias}>
                             <span className={styles.leiaMais}><RiAddCircleFill style={{fontSize: "15"}}/> Leia mais.</span>
                             <div className={styles.envolveImagem}>
                               <Image
@@ -24,7 +25,7 @@ const Noticias = ({noticias}) => {
                             />
                             </div>
                             <p>{`${noticias[0].art_titulo}`}</p>
-                        </a>                       
+                        </Link>                       
                     </div>
 
                     <div className={styles.listaNoticias}>
@@ -32,13 +33,13 @@ const Noticias = ({noticias}) => {
                         noticias.map((noticia, index) => {
                             if(index == 0) return null
                             return(
-                            <a key={index}>{noticia.art_titulo}</a>
+                            <Link href={'/visualizarNoticia'} className={styles.linkNoticias} key={noticias[index].art_id}>{noticia.art_titulo}</Link>
                             )
                         })
                         }
                     </div>                                  
                 </div>
-                <a className={styles.btMaisNoticias}><RiAddCircleFill style={{fontSize: "15"}}/> Mais notícias.</a> 
+                <Link href={'/visualizarNoticia'} className={styles.btMaisNoticias}><RiAddCircleFill style={{fontSize: "15"}}/> Mais notícias.</Link>
             </div>            
         </div>
     )

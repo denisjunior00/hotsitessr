@@ -19,18 +19,16 @@ const CardAnuncio = ({anuncio}) => {
     // }
     
     return(
-        <>       
-        
+        <>
             <div className={styles.cardAnuncio}>
                 <span className={styles.detalhes}>Ver detalhes</span>
                 <div className={styles.envolveImagemVeiculo}>
                     <Image className={styles.imagemVeiculo} fill sizes="(max-width: 100px) 100vw" alt={anuncio.vei_modelo} src={`${anuncio.vei_foto}`} loader={loaderImagens}/>
                 </div>                
-                <p>{anuncio.vei_modelo}</p>
-                <span className={styles.preco}>{anuncio.vei_ano} - {anuncio.cor_nome}</span>
-                <div>{formatadorValor(anuncio.vei_preco)}</div>
+                <p className={styles.modelo}>{anuncio.vei_modelo}</p>
+                <span className={styles.ano}>{anuncio.vei_ano} - {anuncio.cor_nome}</span>
+                <div className={styles.preco}>{formatadorValor(anuncio.vei_preco)}</div>
             </div>
-
         </>
         
     )

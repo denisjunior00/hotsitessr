@@ -17,7 +17,7 @@ const customStyles = {
   },
 };
 
-export default function CardContato({dadosloja}) {
+export default function CardContato({dadosloja}) {  
   const[modalMapaAberto, setModalMapaAberto] = useState(false)
   const[modalHorariosAberto, setModalHorariosAberto] = useState(false)
   function abrirModalMapa() {    
@@ -26,7 +26,17 @@ export default function CardContato({dadosloja}) {
   
   function abrirModalHorarios() {    
     setModalHorariosAberto(true)
+  }  
+  function fecharModalMapa() {    
+    setModalMapaAberto(false)
   }
+  function fecharModalHorarios() {    
+    setModalHorariosAberto(false)
+  } 
+  // let Modal = window.ReactDOM.findDOMNode(Modal);
+  // Modal.addEventListener('click', function(e) {
+  //   if (e.target == this) setModalMapaAberto(false);
+  // });
   
   
   return(
@@ -59,51 +69,47 @@ export default function CardContato({dadosloja}) {
           })
         }  
       </nav>
-      {
-        modalMapaAberto == true 
-        ?
-          <Modal>
-            <div className={styles.modalMapa}>
-            <iframe
-              className={styles.mapa}              
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.250493730164!2d-54.7738105!3d-22.2305727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9489078d89ff44fd%3A0x433d05089a9e4d7e!2sR.%20Fernando%20Ferrari%2C%201175%20-%20Vila%20Industrial%2C%20Dourados%20-%20MS%2C%2079840-120!5e0!3m2!1spt-BR!2sbr!4v1675196720125!5m2!1spt-BR!2sbr"
-            />            
-            </div>
-            <span onClick={() => {setModalMapaAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
-          </Modal>
-        : null
-      }
-      {
-        modalHorariosAberto == true 
-        ?
-          <Modal>              
-            <div className={styles.listaHorarios}>
-              <div className={styles.tituloHorarios}>HORÁRIOS DE ATENDIMENTO.</div>
-              <div className={styles.envolveListaHorarios}>
-                { 
-                  dadosloja[0].loj_horarios_atendimento 
-                  ? 
-                    Object.entries(dadosloja[0].loj_horarios_atendimento).map(([nomeDia, horarios], index) => {                  
-                        return(
-                          <div key={index} className={styles.envolveHorarios}>
-                            <div className={styles.horarios}>
-                              <span className={styles.nomeDia}>{nomeDia.replace('hor', '').toUpperCase()}</span>
-                              <div className={styles.envolveHoras}>                                                     
-                                {horarios[0] ?  <span className={styles.horas}>{horarios[0]} - {horarios[1]}</span> : null}
-                                {horarios[2] ?  <span className={styles.horas}>{horarios[2]} - {horarios[3]}</span> : null}
-                              </div>
-                            </div>
+     
+      <Modal modalAberto={modalMapaAberto} fecharModal={() => {fecharModalMapa()}}>
+        <div className={styles.modalMapa}>
+        <iframe
+          className={styles.mapa}              
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3693.250493730164!2d-54.7738105!3d-22.2305727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9489078d89ff44fd%3A0x433d05089a9e4d7e!2sR.%20Fernando%20Ferrari%2C%201175%20-%20Vila%20Industrial%2C%20Dourados%20-%20MS%2C%2079840-120!5e0!3m2!1spt-BR!2sbr!4v1675196720125!5m2!1spt-BR!2sbr"
+        />            
+        </div>
+        <span onClick={() => {setModalMapaAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
+      </Modal>
+      
+      
+        
+      <Modal modalAberto={modalHorariosAberto} fecharModal={() => {fecharModalHorarios()}}>                        
+        <div className={styles.listaHorarios}>
+          <div className={styles.tituloHorarios}>HORÁRIOS DE ATENDIMENTO.</div>
+          <div className={styles.envolveListaHorarios}>
+            { 
+              dadosloja[0].loj_horarios_atendimento 
+              ? 
+                Object.entries(dadosloja[0].loj_horarios_atendimento).map(([nomeDia, horarios], index) => {                  
+                    return(
+                      <div key={index} className={styles.envolveHorarios}>
+                        <div className={styles.horarios}>
+                          <span className={styles.nomeDia}>{nomeDia.replace('hor', '').toUpperCase()}</span>
+                          <div className={styles.envolveHoras}>                                                     
+                            {horarios[0] ?  <span className={styles.horas}>{horarios[0]} - {horarios[1]}</span> : null}
+                            {horarios[2] ?  <span className={styles.horas}>{horarios[2]} - {horarios[3]}</span> : null}
                           </div>
-                        )
-                    })
-                  : null
-                }
-              </div>
-            </div>   
-            <span onClick={() => {setModalHorariosAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
-          </Modal>
-        : null
-      }  
+                        </div>
+                      </div>
+                    )
+                })
+              : null
+            }
+          </div>
+        </div>   
+        <span onClick={() => {setModalHorariosAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
+      </Modal>
+        
+      
     </>
   )
 }

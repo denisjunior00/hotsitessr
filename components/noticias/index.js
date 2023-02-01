@@ -37,9 +37,9 @@ const Noticias = ({noticias}) => {
                             )
                         })
                         }
-                    </div>                                  
+                    </div>
                 </div>
-                <Link href={'/visualizarNoticia'} className={styles.btMaisNoticias}><RiAddCircleFill style={{fontSize: "15"}}/> Mais notícias.</Link>
+                <Link href={'https://www.shopcar.com.br/noticias/'} target={"_blank"} className={styles.btMaisNoticias}><RiAddCircleFill style={{fontSize: "15"}}/> Mais notícias.</Link>
             </div>            
         </div>
     )

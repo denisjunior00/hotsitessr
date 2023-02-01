@@ -1,7 +1,9 @@
+import styles from './VisualizarNoticia.module.scss'
+
 export default function VisualizarNoticia () {
     return(
-        <div>
-            Visualizar noticia
+        <div className={styles.container}>
+            ajsnaisjdnaisjdiasdaisdais
         </div>
     )
 }

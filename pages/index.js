@@ -67,7 +67,7 @@ export default function  Home({data}) {
               :
               null              
             }            
-            <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
+            <button type='button'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>
         </div>
         <ListagemVeiculos anuncios={destaques}/>

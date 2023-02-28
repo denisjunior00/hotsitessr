@@ -53,7 +53,7 @@ export default function CardContato({dadosloja}) {
                         <a className={styles.telefones} key={index} href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${telefone.telefone.replace(/[\(\)\.\s-]+/g,'')}`} target="_blank">
                           {telefone.aplicativo == 1 ? <RiWhatsappLine style={{ color: 'rgb(24, 201, 24)', fontSize: '16', marginBottom: '-3' }}/> 
                           :
-                          <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15' }}/>}
+                          <RiPhoneFill style={{ marginBottom: '-3', fontSize: '15', color: 'black' }}/>}
                           {telefone.telefone} {index == item.loj_telefone_app.length-1 ? "" : "|" }
                         </a>
                       )}
@@ -79,9 +79,6 @@ export default function CardContato({dadosloja}) {
         </div>
         <span onClick={() => {setModalMapaAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
       </Modal>
-      
-      
-        
       <Modal modalAberto={modalHorariosAberto} fecharModal={() => {fecharModalHorarios()}}>                        
         <div className={styles.listaHorarios}>
           <div className={styles.tituloHorarios}>HORÁRIOS DE ATENDIMENTO.</div>
@@ -106,10 +103,8 @@ export default function CardContato({dadosloja}) {
             }
           </div>
         </div>   
-        <span onClick={() => {setModalHorariosAberto(false)}} className={styles.botaoFecharHorarios}>OK</span>
+        <span onClick={() => {setModalHorariosAberto(false)}} className={styles.botaoFecharHorarios}>OK</span> 
       </Modal>
-        
-      
     </>
   )
 }

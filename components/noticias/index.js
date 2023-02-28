@@ -12,7 +12,7 @@ const Noticias = ({noticias}) => {
                 <h2 className={styles.titulo}>Últimas notícias</h2>
                 <div className={styles.agrupaNoticias}>
                     <div className={styles.noticiaComImg}>
-                        <Link href={'/visualizarNoticia'} className={styles.linkNoticias}>
+                        <Link href={`/noticia/${noticias[0].art_id}`} className={styles.linkNoticias}>
                             <span className={styles.leiaMais}><RiAddCircleFill style={{fontSize: "15"}}/> Leia mais.</span>
                             <div className={styles.envolveImagem}>
                               <Image
@@ -33,7 +33,7 @@ const Noticias = ({noticias}) => {
                         noticias.map((noticia, index) => {
                             if(index == 0) return null
                             return(
-                            <Link href={'/visualizarNoticia'} className={styles.linkNoticias} key={noticias[index].art_id}>{noticia.art_titulo}</Link>
+                            <Link href={`/noticia/${noticia.art_id}`} className={styles.linkNoticias} key={index}>{noticia.art_titulo}</Link>
                             )
                         })
                         }

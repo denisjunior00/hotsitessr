@@ -1,0 +1,148 @@
+.container{
+    background-color: rgb(255, 255, 255);
+    width: 1170px;
+    margin: 0 auto;
+    border-radius: 5px;
+    .envolveTituloComBotaoCompartilhar{
+        display: flex;
+        justify-content: space-between;
+        // align-items: center;
+        padding: 25px 10px;
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            padding-top: 23px;
+            .dropbtn {
+                background-color: #e0e0e0;
+                border-radius: 2px;
+                padding: 5px 10px;
+                display: flex;
+                justify-content: center;
+                gap: 3.5px;
+                cursor: pointer;
+                color: #353535;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+              }      
+              .dropdownContent {
+                display: none;
+                position: absolute;
+                background-color: #f1f1f1;
+                padding: 5px 24px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+                gap: 5px;
+                a {
+                    text-decoration:none;
+                    color: #353535;
+                }
+            }      
+            .show {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+          
+          
+        
+        .tituloNoticia{
+            padding: 15px 15px 15px 0;
+            // white-space: nowrap;
+        }
+    }
+    .fonteNoticia{
+        border-bottom: 2px solid rgb(102, 102, 102);
+        color: rgb(102, 102, 102);
+        width: 85%;
+        padding: 5px;
+    }
+    .envolveImagemComTextoNoticia{
+        // position: relative;
+        padding-top: 40px;
+        display: flex;
+        // grid-template-columns: 200px 200px;
+        // gap: 10px;     
+        .envolveImagemPrincipal{
+            position: relative;
+            width: 300px;
+            height: 240px;
+            padding: 5px;
+            border: 2px solid rgb(0, 0, 0);
+            overflow: hidden;
+            display: inline-block;
+            float: left;
+            margin-right: 15px;
+            .textoAmpliarImg{
+                position: absolute;
+                z-index: 1;
+                margin-left: -5px;
+                margin-top: -50px;
+                width: 100%;
+                padding: 5px 0;
+                text-align: center;
+                background-color: rgba(255, 255, 255, 0.623);
+                transition: 0.2s;
+            }
+                                
+        }
+        .envolveImagemPrincipal:hover{
+            border-color: red;
+            .textoAmpliarImg{
+                z-index: 1;
+                margin-top: -5px;
+            }
+        }                    
+        .textoNoticia{
+            width: 100%;
+            font-size: 15px;
+            
+            padding-bottom: 20px;
+        }       
+    }
+    .maisImagensNoticias{
+        position: relative;
+        width: 100px;
+        height: 80px;
+    }
+    .maisFotosNoticia{
+        .fotosNoticia{
+            display: flex;
+            gap: 15px;
+            margin-bottom: 100px;
+            .maisImagensNoticias{
+                padding: 5px;
+                border: 2px solid rgb(0, 0, 0);
+                overflow: hidden;
+                cursor: pointer;
+                .textoAmpliarImg{
+                    position: absolute;
+                    z-index: 1;
+                    margin-left: -5px;
+                    margin-top: -50px;
+                    width: 100%;
+                    padding: 5px 0;
+                    text-align: center;
+                    background-color: rgba(255, 255, 255, 0.623);
+                    transition: 0.2s;
+                }
+                .outrasImagensNoticias{
+                    position: absolute;
+                    margin-top: -5px;
+                    // z-index: 1;
+                }
+            }
+            .maisImagensNoticias:hover{
+                border-color: red;
+                .textoAmpliarImg{
+                    z-index: 1;
+                    margin-top: -5px;
+                }
+            }
+        }
+    }
+    .envolveImagemModal{
+        padding: 10px;
+        width: calc(100% - 20px);
+        height: calc(100% - 20px);
+        position: relative;
+    }
+}

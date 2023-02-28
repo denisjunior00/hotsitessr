@@ -31,8 +31,13 @@
             
             .telefones{
                 text-decoration: none;
-                color: rgb(0, 0, 0);                         
+                color: rgb(0, 0, 0);
+                cursor: pointer;              
             }
+            .telefones:hover{
+                color: rgb(255, 0, 0);
+            }
+            
         }
 
         .envolveMapaHorarios{

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+
+
 *{   
     margin: 0;
 	padding: 0;
@@ -19,5 +21,3 @@ body{
 .corTema{
     color: rgb(255, 0, 0); 
 }
-
-
